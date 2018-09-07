@@ -65,6 +65,11 @@ func (c *thirdPartyCaveatChecker) checkThirdPartyCaveat(ctx context.Context, p h
 	if err != nil {
 		return nil, errgo.WithCausef(err, params.ErrBadRequest, "cannot parse caveat %q", p.Caveat.Condition)
 	}
+	forceLegacy := false
+	if strings.HasPrefix(cond, "!") {
+		cond = cond[1:]
+		forceLegacy = true
+	}
 	var op bakery.Op
 	switch cond {
 	case "is-authenticated-user":
@@ -110,6 +115,7 @@ func (c *thirdPartyCaveatChecker) checkThirdPartyCaveat(ctx context.Context, p h
 	if _, ok := errgo.Cause(err).(*bakery.DischargeRequiredError); ok {
 		return nil, c.interactionRequiredError(ctx, interactionRequiredParams{
 			why: err,
+			forceLegacy: forceLegacy,
 			req: p.Request,
 			info: &dischargeRequestInfo{
 				Caveat:    p.Caveat.Caveat,
@@ -199,6 +205,9 @@ func (c *thirdPartyCaveatChecker) interactionRequiredError(ctx context.Context, 
 	// we should perhaps just return an error here.
 	if err := c.place.NewRendezvous(ctx, dischargeID, p.info); err != nil {
 		return errgo.Notef(err, "cannot make rendezvous")
+	}
+	if p.forceLegacy {
+		p.req.Header.Set(httpbakery.BakeryProtocolHeader, fmt.Sprint(bakery.V3))
 	}
 	ierr := httpbakery.NewInteractionRequiredError(p.why, p.req)
 	agent.SetInteraction(ierr, agentURL(c.params.Location, dischargeID))
