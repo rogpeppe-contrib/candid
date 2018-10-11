@@ -79,6 +79,17 @@ func (s *dischargeSuite) TestInteractiveDischarge(c *gc.C) {
 	s.AssertDischarge(c, visitor)
 }
 
+func (s *dischargeSuite) TestInteractiveDischargeWithOldClientCaveat(c *gc.C) {
+	visitor := &test.Visitor{
+		User: s.user,
+	}
+	b, ms, err := s.Discharge(c, "<is-authenticated-user", visitor)
+
+	authInfo, err := b.Checker.Auth(ms).Allow(context.Background(), bakery.LoginOp)
+	c.Assert(err, gc.IsNil)
+	c.Assert(authInfo.Identity, gc.Not(gc.Equals), nil)
+}
+
 func (s *dischargeSuite) TestNonInteractiveDischarge(c *gc.C) {
 	visitor := &test.Visitor{
 		User: s.user,

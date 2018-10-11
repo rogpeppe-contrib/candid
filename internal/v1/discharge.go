@@ -65,6 +65,12 @@ func checkThirdPartyCaveat(ctx context.Context, h *handler, req *http.Request, c
 	if c, err := req.Cookie("domain"); err == nil && names.IsValidUserDomain(c.Value) {
 		domain = c.Value
 	}
+	cond = strings.TrimPrefix(cond, "<")
+	// We recognize but ignore a "<" prefix which is used as a
+	// signal to later versions of Candid that an earlier version of
+	// the interaction protocol should be followed. As this version
+	// does not support the later version, we don't need to do
+	// anything other than ignore it and act as usual.
 	switch cond {
 	case "is-authenticated-user":
 		if len(args) == 0 {
