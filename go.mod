@@ -5,15 +5,14 @@ require (
 	github.com/beorn7/perks v0.0.0-20160229213445-3ac7bf7a47d1 // indirect
 	github.com/coreos/go-oidc v0.0.0-20170119174436-2cc7913f9f6f
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/frankban/quicktest v0.8.0 // indirect
 	github.com/garyburd/go-oauth v0.0.0-20150329160146-3131beb69b81
 	github.com/google/go-cmp v0.1.0
 	github.com/gorilla/handlers v0.0.0-20170224193955-13d73096a474
 	github.com/juju/aclstore v0.0.0-20180706073322-7fc1cdaacf01
+	github.com/juju/aclstore/v2 v2.0.0-alpha1
 	github.com/juju/ansiterm v0.0.0-20160907234532-b99631de12cf // indirect
-	github.com/juju/clock v0.0.0-20180808021310-bab88fc67299 // indirect
+	github.com/juju/clock v0.0.0-20180808021310-bab88fc67299
 	github.com/juju/cmd v0.0.0-20180424151504-9ce53c6f9d00
-	github.com/juju/errors v0.0.0-20180806074554-22422dad46e1 // indirect
 	github.com/juju/gnuflag v0.0.0-20171113085948-2ce1bb71843d
 	github.com/juju/go4 v0.0.0-20160222163258-40d72ab9641a // indirect
 	github.com/juju/httpprof v0.0.0-20141217160036-14bf14c30767 // indirect
@@ -21,17 +20,13 @@ require (
 	github.com/juju/names v0.0.0-20160330150533-8a0aa0963bba
 	github.com/juju/persistent-cookiejar v0.0.0-20170428161559-d67418f14c93
 	github.com/juju/postgrestest v0.0.0-20180111150307-95c1ddb2775d
-	github.com/juju/retry v0.0.0-20180821225755-9058e192b216 // indirect
 	github.com/juju/schema v0.0.0-20160420044203-075de04f9b7d
 	github.com/juju/simplekv v0.0.0-20180621131638-ff82918775e5
 	github.com/juju/testing v0.0.0-20180920084828-472a3e8b2073
 	github.com/juju/usso v0.0.0-20160418121039-5b79b358f4bb
-	github.com/juju/utils v0.0.0-20171122093653-4d9b38694f1e
-	github.com/juju/version v0.0.0-20180108022336-b64dbd566305 // indirect
+	github.com/juju/utils v0.0.0-20180820210520-bf9cc5bdd62d
 	github.com/juju/webbrowser v0.0.0-20160309143629-54b8c57083b4 // indirect
 	github.com/julienschmidt/httprouter v0.0.0-20151013225520-77a895ad01eb
-	github.com/kr/pretty v0.0.0-20160823170715-cfb55aafdaf3 // indirect
-	github.com/kr/text v0.0.0-20160504234017-7cafcd837844 // indirect
 	github.com/lib/pq v0.0.0-20171126050459-83612a56d3dd
 	github.com/lunixbochs/vtclean v0.0.0-20160125035106-4fbf7632a2c6 // indirect
 	github.com/mattn/go-colorable v0.0.6 // indirect
@@ -70,6 +65,5 @@ require (
 	gopkg.in/square/go-jose.v2 v2.0.1 // indirect
 	gopkg.in/tomb.v2 v2.0.0-20140626144623-14b3d72120e8
 	gopkg.in/yaml.v2 v2.2.1
-	launchpad.net/gocheck v0.0.0-20140225173054-000000000087 // indirect
 	launchpad.net/lpad v0.0.0-20131113112110-000000000065
 )

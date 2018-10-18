@@ -13,7 +13,7 @@ import (
 
 	"github.com/juju/loggo"
 	"github.com/juju/utils"
-	"github.com/juju/utils/clock"
+	"github.com/juju/clock"
 	"github.com/julienschmidt/httprouter"
 	"golang.org/x/net/context"
 	"gopkg.in/errgo.v1"
