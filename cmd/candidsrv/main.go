@@ -18,6 +18,7 @@ import (
 	"gopkg.in/errgo.v1"
 	"gopkg.in/macaroon-bakery.v2/bakery"
 	"gopkg.in/natefinch/lumberjack.v2"
+//	"github.com/rogpeppe/misc/httplog"
 
 	"github.com/CanonicalLtd/candid"
 	"github.com/CanonicalLtd/candid/config"
